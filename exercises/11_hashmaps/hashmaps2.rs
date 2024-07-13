@@ -1,8 +1,8 @@
 // hashmaps2.rs
 //
 // We're collecting different fruits to bake a delicious fruit cake. For this,
-// we have a basket, which we'll represent in the form of a hash map. The key
 // represents the name of each fruit we collect and the value represents how
+// we have a basket, which we'll represent in the form of a hash map. The key
 // many of that particular fruit we have collected. Three types of fruits -
 // Apple (4), Mango (2) and Lychee (5) are already in the basket hash map. You
 // must add fruit to the basket so that there is at least one of each kind and
@@ -13,8 +13,6 @@
 //
 // Execute `rustlings hint hashmaps2` or use the `hint` watch subcommand for a
 // hint.
-
-// I AM NOT DONE
 
 use std::collections::HashMap;
 
@@ -40,6 +38,9 @@ fn fruit_basket(basket: &mut HashMap<Fruit, u32>) {
         // TODO: Insert new fruits if they are not already present in the
         // basket. Note that you are not allowed to put any type of fruit that's
         // already present!
+        if !basket.contains_key(&fruit) {
+            basket.insert(fruit, 1);
+        }
     }
 }
 
@@ -81,7 +82,7 @@ mod tests {
         let count = basket.values().sum::<u32>();
         assert!(count > 11);
     }
-    
+
     #[test]
     fn all_fruit_types_in_basket() {
         let mut basket = get_fruit_basket();
